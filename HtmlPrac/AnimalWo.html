@@ -17,6 +17,7 @@
 
 function goPrev()
 {
+	//set prev image
 	thisImg = document.getElementById("mImg");
 	fileName = thisImg.src;
 	numInFile = fileName.match(/\d/g)[0];
@@ -25,13 +26,18 @@ function goPrev()
 	if (numInFile < 0) {
 		numInFile = 0
 	}
-	 
+	
 	thisImg.src = "img/" + numInFile + ".jpg";
+
+	//set prev audio	
+	thisAu = document.getElementById("animalAu");
+	thisAu.src = "audio/" + numInFile + ".wav";
 	
 }
 
 function goNext()
 {	
+	//set next image
 	thisImg = document.getElementById("mImg");
 	fileName = thisImg.src;
 	numInFile = fileName.match(/\d/g)[0];
@@ -42,6 +48,10 @@ function goNext()
 	}
 	 
 	thisImg.src = "img/" + numInFile + ".jpg";
+	
+	//set next audio	
+	thisAu = document.getElementById("animalAu");
+	thisAu.src = "audio/" + numInFile + ".wav";	
 }
 
 function playAudio()
@@ -74,7 +84,7 @@ function playAudio()
 
 <audio id="animalAu">
   <source src="horse.ogg" type="audio/ogg">
-  <source src="audio/Dog animals080.wav" type="audio/mpeg">
+  <source src="audio/0.wav" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
 
