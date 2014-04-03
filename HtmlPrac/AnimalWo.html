@@ -2,33 +2,87 @@
 <html>
 <head>
 <style>
-.divhead {background-color:#FFA500;}
-.divleft {background-color:#FFD700;height:200px;width:100px;float:left;}
+.divhead {background-color:#FFA500;text-align:center;}
+.divleft {background-color:#FFFFFF;float:left;}
 .divmain {background-color:#FFD700;height:200px;width:100px;float:left;}
 .divfoot {background-color:#FFA500;clear:both;text-align:center;}
 
 .dropdiv {width:70px;height:70px;padding:2px;border:1px solid #aaaaaa;display:inline-block;}
 #boxdiv {width:450px;height:140px;padding:2px;border:1px solid #aaaaaa;display:inline-block;}
-.mainImg {width:170px;height:200px}
+.mainImg {width:170px;height:200px;}
+.naviImg {width:70px;height:200px;}
 </style>
 
+<script>
+
+function goPrev()
+{
+	thisImg = document.getElementById("mImg");
+	fileName = thisImg.src;
+	numInFile = fileName.match(/\d/g)[0];
+	numInFile = parseInt(numInFile);
+	numInFile -= 1;
+	if (numInFile < 0) {
+		numInFile = 0
+	}
+	 
+	thisImg.src = "img/" + numInFile + ".jpg";
+	
+}
+
+function goNext()
+{	
+	thisImg = document.getElementById("mImg");
+	fileName = thisImg.src;
+	numInFile = fileName.match(/\d/g)[0];
+	numInFile = parseInt(numInFile);
+	numInFile += 1;
+	if (numInFile > 9) {
+		numInFile = 9
+	}
+	 
+	thisImg.src = "img/" + numInFile + ".jpg";
+}
+
+function playAudio()
+{
+	thisAu = document.getElementById("animalAu");
+	thisAu.load();
+	thisAu.play();
+}
+
+
+</script>
 </head>
 
 <body>
 <!-- head div -->
-<div class ="divhead">
+<div class ="divhead"> header
 </div>
 
 <!-- mail div -->
-<div class ="divmain">
-
-<img id="mImg" class="mainImg" src="img/9.jpg">
-
+<div class ="divleft">
+<img id="preImg" class="naviImg" src="img/prev.jpg" onclick="goPrev()">
 </div>
+<div class ="divleft">
+<img id="mImg" class="mainImg" src="img/0.jpg" onclick="playAudio()">
+</div>
+<div class ="divleft">
+<img id="nextImg" class="naviImg" src="img/next.jpg" onclick="goNext()">
+</div>
+
+
+<audio id="animalAu">
+  <source src="horse.ogg" type="audio/ogg">
+  <source src="audio/Dog animals080.wav" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
 
 <!-- footer div -->
-<div class ="divfoot">
+<div class ="divfoot"> footer
 </div>
+
 
 
 
