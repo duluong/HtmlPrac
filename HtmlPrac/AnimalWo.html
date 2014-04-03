@@ -32,7 +32,6 @@ function goPrev()
 	//set prev audio	
 	thisAu = document.getElementById("animalAu");
 	thisAu.src = "audio/" + numInFile + ".wav";
-	
 }
 
 function goNext()
@@ -61,6 +60,25 @@ function playAudio()
 	thisAu.play();
 }
 
+function mImgUp()
+{
+	thisImg = document.getElementById("mImg");
+	fileName = thisImg.src;
+	numInFile = fileName.match(/\d/g)[0];
+	numInFile = parseInt(numInFile);
+	 
+	thisImg.src = "img/" + numInFile + ".jpg";
+}
+
+function mImgDown()
+{
+	thisImg = document.getElementById("mImg");
+	fileName = thisImg.src;
+	numInFile = fileName.match(/\d/g)[0];
+	numInFile = parseInt(numInFile);
+	 
+	thisImg.src = "img/" + numInFile + "_click.jpg";
+}
 
 </script>
 </head>
@@ -72,13 +90,19 @@ function playAudio()
 
 <!-- mail div -->
 <div class ="divleft">
-<img id="preImg" class="naviImg" src="img/prev.jpg" onclick="goPrev()">
+<img id="preImg" class="naviImg" src="img/prev.jpg" onclick="goPrev()" 
+	onmouseup="src='img/prev.jpg';" 
+	onmousedown="src='img/prev_click.jpg';">
 </div>
 <div class ="divleft">
-<img id="mImg" class="mainImg" src="img/0.jpg" onclick="playAudio()">
+<img id="mImg" class="mainImg" src="img/0.jpg" onclick="playAudio()"
+	onmouseup="mImgUp()"
+	onmousedown="mImgDown()">
 </div>
 <div class ="divleft">
-<img id="nextImg" class="naviImg" src="img/next.jpg" onclick="goNext()">
+<img id="nextImg" class="naviImg" src="img/next.jpg" onclick="goNext()" 
+	onmouseup="src='img/next.jpg';" 
+	onmousedown="src='img/next_click.jpg';">
 </div>
 
 
