@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+.dropdiv {width:70px;height:70px;padding:2px;border:1px solid #aaaaaa;display:inline-block;}
+#boxdiv {width:450px;height:140px;padding:2px;border:1px solid #aaaaaa;display:inline-block;}
+.dragimg {width:60px;height:60px}
+</style>
+<script>
+function allowDrop(ev)
+{
+ev.preventDefault();
+}
+
+function drag(ev)
+{
+ev.dataTransfer.setData("Text",ev.target.id);
+}
+
+function drop(ev)
+{
+ev.preventDefault();
+var data=ev.dataTransfer.getData("Text");
+ev.target.appendChild(document.getElementById(data));
+}
+
+function init()
+{
+	if(typeof(Storage) == "undefined")
+		{
+			alert("This browser is not support Storage");
+		}
+	else
+		{
+			alert("This browser is support Storage");
+		}
+	
+}
+</script>
+</head>
+<body onload="init()">
+
+<p>Drag the W3Schools image into the rectangle:</p>
+
+<div id="div0" class="dropdiv" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="div1" class="dropdiv" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="div2" class="dropdiv" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="div3" class="dropdiv" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="div4" class="dropdiv" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="div5" class="dropdiv" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="div6" class="dropdiv" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="div7" class="dropdiv" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="div8" class="dropdiv" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="div9" class="dropdiv" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+<br>
+<br>
+
+
+<div id="boxdiv" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+<img id="img0" class="dragimg" src="img/0.jpg" draggable="true" ondragstart="drag(event)">
+<img id="img1" class="dragimg" src="img/1.jpg" draggable="true" ondragstart="drag(event)">
+<img id="img2" class="dragimg" src="img/2.jpg" draggable="true" ondragstart="drag(event)">
+<img id="img3" class="dragimg" src="img/3.jpg" draggable="true" ondragstart="drag(event)">
+<img id="img4" class="dragimg" src="img/4.jpg" draggable="true" ondragstart="drag(event)">
+<img id="img5" class="dragimg" src="img/5.jpg" draggable="true" ondragstart="drag(event)">
+<img id="img6" class="dragimg" src="img/6.jpg" draggable="true" ondragstart="drag(event)">
+<img id="img7" class="dragimg" src="img/7.jpg" draggable="true" ondragstart="drag(event)">
+<img id="img8" class="dragimg" src="img/8.jpg" draggable="true" ondragstart="drag(event)">
+<img id="img9" class="dragimg" src="img/9.jpg" draggable="true" ondragstart="drag(event)">
+
+</div>
+
+
+</body>
+</html>
